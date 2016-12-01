@@ -41,7 +41,7 @@ public class SimpleServlet extends HttpServlet {
 			 response.getWriter().print("DashDB is connected now!</br>");
 		    Statement stmt = conn.createStatement();
           
-                    stmt.execute("DELETE FROM DOGS WHERE dalmatian = 'husky');
+                    stmt.execute("DELETE FROM DOGS WHERE dalmatian = 'husky'");
 		    stmt.execute("INSERT INTO DOGS VALUES ('meo1', 'husky' )");
 		    stmt.execute("INSERT INTO DOGS VALUES ('meo2', 'husky' )");
             
