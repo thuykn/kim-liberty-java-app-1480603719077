@@ -41,13 +41,12 @@ public class SimpleServlet extends HttpServlet {
 			 response.getWriter().print("DashDB is connected now!</br>");
 		    Statement stmt = conn.createStatement();
           
-                    stmt.execute("DELETE FROM TEST WHERE ID = 7");
+                    stmt.execute("DELETE FROM TEST WHERE ID = 2");
 		    stmt.execute("INSERT INTO TEST VALUES (7, 'Muffy', 24, 'Indore', 10000.00 )");
                     stmt.executeQuery("SELECT * FROM TEST");
-		    
-		    stmt.execute("INSERT INTO DOGS VALUES ('meo1', 'husky' )");
-		    stmt.execute("INSERT INTO DOGS VALUES ('meo2', 'husky' )");           
-		    stmt.executeQuery("SELECT * FROM DOGS WHERE dalmatian = 'husky'");
+		      // stmt.execute("INSERT INTO DOGS VALUES ('meo1', 'husky' )");
+		 //   stmt.execute("INSERT INTO DOGS VALUES ('meo2', 'husky' )");           
+		//    stmt.executeQuery("SELECT * FROM DOGS WHERE dalmatian = 'husky'");
 			
 		    ResultSet rs = stmt.getResultSet();
 		    System.out.println("yes");
