@@ -1,13 +1,11 @@
 package wasdev.sample.servlet;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -17,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+
 /**
  * Servlet implementation class SimpleServlet
  */
@@ -42,7 +41,7 @@ public class SimpleServlet extends HttpServlet {
 		    Statement stmt = conn.createStatement();
           
                     stmt.execute("DELETE FROM TEST WHERE ID = 2");
-		    stmt.execute("INSERT INTO TEST VALUES (7, 'Muffy', 24, 'Indore', 10000.00 )");
+		    stmt.execute("INSERT INTO TEST VALUES (2, 'Muffy', 24, 'Indore', 10000.00 )");
                     stmt.executeQuery("SELECT * FROM TEST");
 		      // stmt.execute("INSERT INTO DOGS VALUES ('meo1', 'husky' )");
 		 //   stmt.execute("INSERT INTO DOGS VALUES ('meo2', 'husky' )");           
@@ -51,14 +50,14 @@ public class SimpleServlet extends HttpServlet {
 		    ResultSet rs = stmt.getResultSet();
 		    System.out.println("yes");
 	           while(rs.next()) {
-                         response.getWriter().print(rs.getString(1)+"  "+rs.getString(2)+"</br>");
+                                          response.getWriter().print(rs.getString(2)+"  "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+"</br>");
 			} 
 			stmt.close();
 			conn.close();
 		} catch (NamingException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-
+		}
     }
 
 }
