@@ -41,15 +41,15 @@ public class SimpleServlet extends HttpServlet {
 			 response.getWriter().print("DashDB is connected now!</br>");
 		    Statement stmt = conn.createStatement();
           
-            stmt.execute("DELETE FROM DOGS WHERE dalmatian = 'husky');
+                    stmt.execute("DELETE FROM DOGS WHERE dalmatian = 'husky');
 		    stmt.execute("INSERT INTO DOGS VALUES ('meo1', 'husky' )");
 		    stmt.execute("INSERT INTO DOGS VALUES ('meo2', 'husky' )");
             
-			stmt.executeQuery("SELECT * FROM DOGS WHERE dalmatian = 'husky'");
-			ResultSet rs = stmt.getResultSet();
-			System.out.println("yes");
-			while(rs.next()) {
-                 response.getWriter().print(rs.getString(1)+"  "+rs.getString(2)+"</br>");
+		    stmt.executeQuery("SELECT * FROM DOGS WHERE dalmatian = 'husky'");
+		    ResultSet rs = stmt.getResultSet();
+		    System.out.println("yes");
+	           while(rs.next()) {
+                         response.getWriter().print(rs.getString(1)+"  "+rs.getString(2)+"</br>");
 			} 
 			stmt.close();
 			conn.close();
