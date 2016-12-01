@@ -36,22 +36,23 @@ public class SimpleServlet extends HttpServlet {
 			initContext = new InitialContext();
 			DataSource ds = (DataSource)initContext.lookup("jdbc/kim-dashDB for Analytics-7n");
 			Connection conn = ds.getConnection();
-		//	System.out.println("yes");
+		       //System.out.println("yes");
 			 response.getWriter().print("DashDB is connected now!</br>");
-		    Statement stmt = conn.createStatement();
+			 response.getWriter().print("</br>Dogs table: NAME, AGE, DOGTYPE, COST</br>");
+		         Statement stmt = conn.createStatement();
           
-		    //stmt.execute("DELETE FROM CUSTOMERS WHERE ID = 7");
-		    //stmt.execute("INSERT INTO CUSTOMERS VALUES (7, 'Muffy', 24, 'Indore', 10000.00 )");
-		    //stmt.executeQuery("SELECT * FROM CUSTOMERS");
+		       //stmt.execute("DELETE FROM CUSTOMERS WHERE ID = 7");
+		       //stmt.execute("INSERT INTO CUSTOMERS VALUES (7, 'Muffy', 24, 'Indore', 10000.00 )");
+		       //stmt.executeQuery("SELECT * FROM CUSTOMERS");
 			
-		    stmt.execute("DELETE FROM DOGS WHERE ID = 7");
-		    stmt.execute("INSERT INTO DOGS VALUES (7, 'NEW', 6, 'NEW', 100.00 )");
-                    stmt.executeQuery("SELECT * FROM DOGS");
+			stmt.execute("DELETE FROM DOGS WHERE ID = 7");
+		        stmt.execute("INSERT INTO DOGS VALUES (7, 'NEW', 6, 'NEW', 100.00 )");
+                        stmt.executeQuery("SELECT * FROM DOGS");
 
-		    ResultSet rs = stmt.getResultSet();
-		    System.out.println("yes");
-	           while(rs.next()) {
-                             response.getWriter().print(rs.getString(2)+"  "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+"</br>");
+		        ResultSet rs = stmt.getResultSet();
+			ResultSet rs = stmt.getResultSet();
+		        while(rs.next()) {
+                       response.getWriter().print(rs.getString(2)+"  "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+"</br>");
 			} 
 			stmt.close();
 			conn.close();
